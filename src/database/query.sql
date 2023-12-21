@@ -1,6 +1,8 @@
 -- Active: 1700627637371@@127.0.0.1@3306@db_proyectos_encomarx
 CREATE DATABASE IF NOT EXISTS db_proyectos_encomarx;
 
+USE db_proyectos_encomarx;
+
 CREATE TABLE IF NOT EXISTS clientes(
   id_cliente INT AUTO_INCREMENT,
   tipo_documento VARCHAR(50) NOT NULL,

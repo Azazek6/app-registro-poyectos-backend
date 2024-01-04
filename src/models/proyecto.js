@@ -25,7 +25,7 @@ export const Proyecto = database.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    id_cliente: {
+    id_persona: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -36,6 +36,26 @@ export const Proyecto = database.define(
     fecha_termino: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+    distrito: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    provincia: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    direccion: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    altitud: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    referencia: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     estado: {
       type: DataTypes.INTEGER,

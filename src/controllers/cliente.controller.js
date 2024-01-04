@@ -2,9 +2,9 @@ import moment from "moment";
 import { Cliente } from "../models/asociacion.js";
 
 export const crearCliente = async (req, res) => {
-  const { type, document, names } = req.body;
+  const { type, document, names, rol } = req.body;
 
-  if (!type || !document || !names) {
+  if (!type || !document || !names || !rol) {
     return res.status(400).json({
       message: "Hay campos Obligatorios...!",
     });
@@ -23,18 +23,19 @@ export const crearCliente = async (req, res) => {
       tipo_documento: type.toUpperCase(),
       documento: document,
       nombre: names.toUpperCase(),
+      rol: rol.toUpperCase(),
       fecha_registro: moment(),
     });
 
     if (!newData) {
       return res.status(400).json({
-        message: "Ocurrió un problema al registrar cliente...!",
+        message: "Ocurrió un problema al registrar persona...!",
       });
     }
 
     return res.status(201).json({
-      message: "Se ha añadido un nuevo cliente...!",
-      id_cliente: newData.id_cliente,
+      message: "Se ha añadido una nueva persona...!",
+      id_cliente: newData.id_persona,
     });
   } catch (error) {
     return res.status(500).json({

@@ -11,12 +11,33 @@ export const crearProyecto = async (req, res) => {
     id_cliente,
     fecha_inicio,
     fecha_termino,
+    distrito,
+    provincia,
+    direccion,
+    altitud,
+    referencia,
     estado,
   } = req.body;
 
-  if (!proyecto || !nombre || !id_cliente || !fecha_inicio || !fecha_termino) {
+  if (
+    !proyecto ||
+    !nombre ||
+    !id_cliente ||
+    !fecha_inicio ||
+    !fecha_termino ||
+    !distrito ||
+    !provincia ||
+    !direccion ||
+    !altitud
+  ) {
     return res.status(400).json({
       message: "Hay campos Obligatorios...!",
+    });
+  }
+
+  if (altitud <= 0) {
+    return res.status(400).json({
+      message: "La altitud no puede ser menor a 0...!",
     });
   }
 
@@ -34,9 +55,14 @@ export const crearProyecto = async (req, res) => {
       nombre: nombre.toUpperCase(),
       division: division.toUpperCase(),
       contacto: contacto,
-      id_cliente: id_cliente,
+      id_persona: id_cliente,
       fecha_inicio: fecha_inicio,
       fecha_termino: fecha_termino,
+      distrito: distrito.toUpperCase(),
+      provincia: provincia.toUpperCase(),
+      direccion: direccion.toUpperCase(),
+      altitud: altitud,
+      referencia: referencia.toUpperCase(),
       estado: estado.toUpperCase(),
       fecha_registro: moment(),
     });

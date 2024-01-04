@@ -1,37 +1,33 @@
 import { DataTypes } from "sequelize";
 import { database } from "../configurations/db.js";
 
-export const Ubicacion = database.define(
-  "ubicaciones",
+export const Usuario = database.define(
+  "usuarios",
   {
-    id_ubicacion: {
+    id_usuario: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    distrito: {
+    nombres: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    provincia: {
+    apellidos: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    direccion: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    altitud: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    referencia: {
+    usuario: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    id_proyecto: {
-      type: DataTypes.INTEGER,
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    estado: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     fecha_registro: {
       type: DataTypes.DATE,

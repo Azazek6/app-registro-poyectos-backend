@@ -2,9 +2,9 @@ import { DataTypes } from "sequelize";
 import { database } from "../configurations/db.js";
 
 export const Cliente = database.define(
-  "clientes",
+  "personas",
   {
-    id_cliente: {
+    id_persona: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
@@ -18,6 +18,10 @@ export const Cliente = database.define(
       allowNull: false,
     },
     nombre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    rol: {
       type: DataTypes.STRING,
       allowNull: false,
     },

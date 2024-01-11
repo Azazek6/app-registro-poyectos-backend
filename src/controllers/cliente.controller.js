@@ -46,21 +46,21 @@ export const crearCliente = async (req, res) => {
 
 // Listar Clientes por documento
 export const listarClienteDocumento = async (req, res) => {
-  const { documento } = req.params;
+  const { documento, rol } = req.params;
 
-  if (!documento) {
+  if (!documento || !rol) {
     return res.status(400).json({
       message: "Parametro requerido",
     });
   }
   try {
     const listar = await Cliente.findOne({
-      where: { documento: documento },
+      where: { documento: documento, rol: rol },
     });
 
     if (!listar) {
       return res.status(400).json({
-        message: "Cliente no reconocido",
+        message: "Persona no reconocido",
       });
     }
 
@@ -71,3 +71,4 @@ export const listarClienteDocumento = async (req, res) => {
     });
   }
 };
+

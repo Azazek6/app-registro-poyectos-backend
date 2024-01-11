@@ -7,6 +7,6 @@ import {
 const router = Router();
 
 router.post("/", crearCliente); // Registrar cliente
-router.get("/documento/:documento", listarClienteDocumento); // Mostrar clientes por numero de documento
+router.get("/documento/:documento/rol/:rol", listarClienteDocumento); // Mostrar clientes por numero de documento
 
 export default router;

@@ -39,7 +39,7 @@ export const createData = async (req, res) => {
       id_mecanico: id_mecanico == "" ? null : id_mecanico,
       telefono: telefono,
       comentarios: comentarios,
-      fecha_registro: moment()
+      fecha_registro: moment(),
     });
 
     if (!newData) {

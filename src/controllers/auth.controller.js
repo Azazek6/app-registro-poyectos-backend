@@ -27,13 +27,21 @@ export const signIn = async (req, res) => {
       });
     }
 
-    const token = jwt.sign(newUser, "registrosECOMARX2024");
+    const dataToken = {
+      id_usuario: newUser.id_usuario,
+      nombre: newUser.nombres,
+      apellidos: newUser.apellidos,
+      usuario: newUser.usuario,
+    };
+
+    const token = jwt.sign(dataToken, "sddecomx");
 
     return res.status(201).json({
       message: "Credenciales correctas......!",
       token: token,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       message: `SERVER_ERROR:: ${error}`,
     });
